@@ -1,0 +1,261 @@
+
+Build a complete Lost and Found System web application for The Bells University with the following specifications:
+TECHNICAL REQUIREMENTS (MANDATORY):
+
+Framework: React.js 18+ (NO TypeScript - use JavaScript only)
+Build Tool: Vite
+Styling: Tailwind CSS (utility classes only)
+Icons: lucide-react
+Routing: react-router-dom v6
+NO TypeScript files (.ts, .tsx) - use .js and .jsx only
+NO backend initially - use mock data stored in a JavaScript file
+
+PROJECT STRUCTURE:
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   ├── ItemCard.jsx
+│   ├── SearchBar.jsx
+│   └── FilterBar.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── Browse.jsx
+│   ├── ItemDetail.jsx
+│   ├── ReportItem.jsx
+│   ├── Auth.jsx
+│   └── Contact.jsx
+├── data/
+│   └── mockItems.js
+├── App.jsx
+├── main.jsx
+└── index.css
+CORE FEATURES TO IMPLEMENT:
+1. Navigation Bar (Navbar.jsx)
+
+Logo with search icon on the left (text: "LAF SYSTEM")
+Desktop menu: Home, Browse Items, Contact
+Auth buttons: Log in, Sign up (right side)
+Mobile responsive hamburger menu
+Sticky positioning with glass morphism effect (bg-white/80 backdrop-blur-md)
+Use lucide-react icons: Search, Menu, X
+
+2. Home Page (Home.jsx)
+
+Hero Section:
+
+Full-width banner with campus background image (use unsplash.com)
+Heading: "Lost something on campus? We'll help you find it."
+Subheading about the portal
+Search bar with blue gradient background and glass morphism
+Two CTA buttons: "I Lost Something" and "I Found Something"
+
+
+Features Section:
+
+Three feature cards in a grid:
+
+Secure Verification (ShieldCheck icon)
+Real-time Updates (Clock icon)
+Campus Wide (Users icon)
+
+
+Light blue background with rounded cards
+
+
+Recent Activity Section:
+
+Display 4 recent items in a grid
+Show item cards with images, status badges (LOST/FOUND), location, and date
+"View All Items" button
+
+
+
+3. Item Cards (ItemCard.jsx)
+
+Card with image (aspect ratio 4:3)
+Status badge (red for LOST, green for FOUND) - top left
+Item name and category
+Location with MapPin icon
+Date with Calendar icon
+"View Details" button
+Hover effects: scale image slightly, add shadow
+If claimed, show "CLAIMED" overlay with blur effect
+
+4. Browse Page (Browse.jsx)
+
+Search bar at top
+Filter buttons: All, Lost, Found
+Grid of all items (responsive: 1 col mobile, 2 tablet, 4 desktop)
+Active filter should be highlighted
+Search functionality filters items by name and category
+
+5. Item Detail Page (ItemDetail.jsx)
+
+Large image on left (or top on mobile)
+Details on right:
+
+Item name (large heading)
+Category
+Status badge
+Location with icon
+Date reported
+Full description
+Contact button (if not claimed)
+
+
+Back to Browse button
+Show CLAIMED overlay if item is claimed
+
+6. Report Item Form (ReportItem.jsx)
+
+Form with fields:
+
+Item Type (Lost or Found) - radio buttons
+Item Name - text input
+Category - dropdown (Electronics, Books, Bags, Bottles, Accessories, Other)
+Location - text input
+Date - date picker
+Description - textarea
+Image Upload (optional) - file input with preview
+Submit button
+
+
+Form validation (all fields required except image)
+Success message after submission
+
+7. Auth Page (Auth.jsx)
+
+Tabs for Login and Sign Up
+Login form: Email, Password
+Signup form: Full Name, Student ID, Email, Password, Confirm Password
+Toggle between forms
+Styled cards with proper spacing
+
+8. Contact Page (Contact.jsx)
+
+Contact information for student affairs
+Contact form: Name, Email, Subject, Message
+Campus map or location info
+Social media links (optional)
+
+9. Footer (Footer.jsx)
+
+Four columns (on desktop):
+
+About LAF System (2 columns wide)
+Quick Links (Home, Browse, Report)
+Support (Contact, Terms, Privacy)
+
+
+Copyright text at bottom
+Dark background (bg-slate-900) with light text
+
+MOCK DATA (mockItems.js):
+Create at least 8 sample items with this structure:
+javascript{
+  id: 1,
+  name: "Blue Hydro Flask",
+  category: "Bottles",
+  status: "lost" or "found",
+  location: "Lecture Hall A",
+  date: "May 15, 2025",
+  image: "https://images.unsplash.com/...",
+  description: "Detailed description here",
+  claimed: false,
+  reporterName: "John Doe",
+  reporterContact: "john@example.com"
+}
+STYLING GUIDELINES:
+
+Colors:
+
+Primary: Blue-600 (#2563eb)
+Lost badges: Red-500
+Found badges: Emerald-500
+Background: Slate-50
+
+
+Typography:
+
+Headings: font-bold, larger sizes
+Body: text-gray-600
+
+
+Spacing:
+
+Container: max-w-7xl mx-auto px-4
+Sections: py-12 or py-16
+
+
+Effects:
+
+Hover: transition-all duration-300, hover:shadow-lg
+Cards: rounded-xl, shadow
+Buttons: hover:bg-blue-700, transition-colors
+
+
+
+RESPONSIVE DESIGN:
+
+Mobile first approach
+Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+Hide desktop nav on mobile, show hamburger menu
+Stack cards vertically on mobile
+Full-width forms on mobile
+
+ROUTING SETUP:
+Configure react-router-dom with these routes:
+
+/ → Home
+/browse → Browse
+/item/:id → ItemDetail
+/report → ReportItem
+/auth → Auth
+/contact → Contact
+
+ADDITIONAL REQUIREMENTS:
+
+All components should be functional components (use hooks)
+Use useState for form inputs and local state
+Use useNavigate for programmatic navigation
+Use useParams to get item ID from URL
+Add smooth scrolling: html { scroll-behavior: smooth; }
+Make sure all images load from unsplash.com with proper dimensions
+Add proper alt text for accessibility
+Include hover states on all interactive elements
+Add loading states for buttons
+Form should reset after successful submission
+
+VITE & TAILWIND CONFIGURATION:
+
+Configure Tailwind to scan all .jsx files
+Set up proper content paths in tailwind.config.js
+Include Tailwind directives in index.css
+Configure Vite for proper routing (add fallback for SPA)
+
+STARTING INSTRUCTION:
+
+Initialize Vite project with React template (NO TypeScript)
+Install dependencies: tailwindcss, lucide-react, react-router-dom
+Set up Tailwind CSS
+Create folder structure
+Build components in this order: Navbar, Footer, ItemCard, then pages
+Test each page before moving to the next
+
+WHAT NOT TO DO:
+❌ Don't use TypeScript
+❌ Don't create a real backend (use mock data only for now)
+❌ Don't use CSS modules or styled-components
+❌ Don't use class components
+❌ Don't install unnecessary packages
+SUCCESS CRITERIA:
+✅ App runs without errors
+✅ All pages are accessible and functional
+✅ Responsive on mobile, tablet, and desktop
+✅ Search and filter work correctly
+✅ Forms validate and show success messages
+✅ Navigation between pages works smoothly
+✅ All images load properly
+✅ Styling matches modern web design standards
+Build this application step by step, ensuring each component works before proceeding to the next. Start with the project setup and basic structure, then build the UI components, and finally connect everything together with routing and state management.
